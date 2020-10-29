@@ -32,6 +32,6 @@ How to run the APPS on local :
  This app uses npm package manager. In terminal, under same project i.e graphql-weather-api, run `npm i` to install the packages
  
  ### `npm start`
- In terminal, run `npm start`
+ In terminal, run `npm start`. CAVEAT: valid KEY should be there in .env else weather query will not execute even though the city has been fetched via reverse geocoding.
  Runs the app in the development mode.<br />
- Open [http://localhost:4000](http://localhost:4000) to view it in the browser and use any query to test the server is up !
+ Open [http://localhost:4000](http://localhost:4000) to view it in the browser and use any query (eg from : https://github.com/konstantinmuenster/graphql-weather-api.git) to test the server is up !
