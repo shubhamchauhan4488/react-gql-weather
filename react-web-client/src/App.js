@@ -5,11 +5,11 @@ import { Header } from './components/Header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="app">
+      <div className="app-main-container">
         <Header />
         <Home />
-      </header>
+      </div>
     </div>
   );
 }

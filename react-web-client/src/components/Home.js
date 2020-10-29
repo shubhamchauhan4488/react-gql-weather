@@ -35,7 +35,6 @@ export const Home = () => {
     e.preventDefault()
     getLatLng(setLocation);
     if (!location || location?.lat === '' || location?.lng) return;
-    console.log('calling for city')
     /** Hook on city change to get whether data */
     dispatchFetchCityFromCoordinates(location?.lat, location?.lng)
   };
@@ -43,70 +42,66 @@ export const Home = () => {
   return (
     <>
       {isFetching ?
-        <img src={logo} className="App-logo" alt="logo" /> :
+        <img src={logo} className="app-logo" alt="logo" /> :
         <div className="container" >
           <div className="row">
             <div className="col-sm-12">
-              <div className="round">
-                <label>Wind</label>
+              <div className="round-container">
+                <label htmlFor='wind-speed'>Wind</label>
                 <br />
-                {windSpeed} kmph
-               </div>
-            </div>
-          </div>
-          <div className="row justify-content-around">
-            <div className="col-6">
-              <div className="round">
-                <label>Max Temp</label>
-                <br />
-                {kelvinToCelcius(temperature?.max)}°C
-              </div>
-            </div>
-            <div className="col-6">
-              <div className="round">
-                <label>Min Temp</label>
-                <br />
-                {kelvinToCelcius(temperature?.min)}°C
+                <span id='wind-speed'>{windSpeed} kmph</span>
               </div>
             </div>
           </div>
 
+          <div className="row justify-content-around-container">
+            <div className="col-6">
+              <div className="round-container">
+                <label htmlFor='temp-max'>Max °C</label>
+                <br />
+                <span id='temp-max'>{kelvinToCelcius(temperature?.max)}°C</span>
+              </div>
+            </div>
+            <div className="col-6">
+              <div className="round-container">
+                <label htmlFor='temp-min'>Min °C</label>
+                <br />
+                <span id='temp-min'>{kelvinToCelcius(temperature?.min)}°C</span>
+              </div>
+            </div>
+          </div>
 
           <div className="row">
             <div className="col-sm-12">
-              {kelvinToCelcius(temperature?.actual)}°C
-              <br />
-              {city}
-              <br />
-              {weatherSummaryDescription}
+              <span id='temp-actual'>{kelvinToCelcius(temperature?.actual)}°C</span><br />
+              <span id='city'>{city}</span><br />
+              <span id='weather-summary'>{weatherSummaryDescription}</span>
               {!isFetching &&
                 <div className="col-">
                   <button
+                    id='reload-btn'
                     onClick={handleRefresh}
                     type="button" className="btn btn-light"
                     disabled={isFetching}
                   >
-                    Refresh
+                    Reload
                   </button>
                 </div>
               }
             </div>
           </div>
 
-
           <div className="row justify-content-between align-items-center">
             <div className="col-6">
-              <div className="round" >
-                <label>Visibility</label>
-                <br />
-                {visibility / 1000} km
+              <div className="round-container" >
+                <label htmlFor='visibility'>Visibility</label><br />
+                <span id='visibility'>{visibility / 1000} km</span>
               </div>
             </div>
             <div className="col-6">
-              <div className="round" >
-                <label>Humidity</label>
-                <br />
-                {humidity}%
+              <div className="round-container" >
+                <label htmlFor='humidity'>Humidity</label><br />
+                <span id='humidity'>{humidity}%</span>
               </div>
             </div>
           </div>
@@ -114,10 +109,9 @@ export const Home = () => {
 
           <div className="row">
             <div className="col-sm-12">
-              <div className="round">
-                <label>Feels Like</label>
-                <br />
-                {kelvinToCelcius(temperature?.feelsLike)}°C
+              <div className="round-container">
+                <label htmlFor='feels-like'>Feels Like</label><br />
+                <span id='feels-like'>{kelvinToCelcius(temperature?.feelsLike)}°C</span>
               </div>
             </div>
           </div>

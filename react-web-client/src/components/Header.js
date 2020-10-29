@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Header = () => (
-  <h2 class="row header">
+  <h2 className="row app-header">
     Weather Dial
   </h2>
 )
