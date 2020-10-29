@@ -1,8 +1,8 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCityFromCoordinates, setWeatherData } from "./orchestration";
 import { getCity, getVisibility, getHumidity, getTemperatureData, getWindSpeed, getWeatherSummaryDescription, getIsFetching } from "./selectors";
 import { useLazyQuery } from "@apollo/client";
-import React, { useEffect, useState } from "react";
 import { GET_WEATHER_QUERY } from "./constants";
 
 export const useWeather = () => {
@@ -19,8 +19,7 @@ export const useWeather = () => {
 
   useEffect(() => {
     console.log('citydetected', city)
-    getWeather({
-      skip: !city,
+    city && getWeather({
       variables: { name: city },
     })
     data?.getCityByName?.weather && dispatch(setWeatherData(data?.getCityByName?.weather, loading, error))
