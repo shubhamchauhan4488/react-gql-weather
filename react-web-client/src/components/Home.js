@@ -41,7 +41,7 @@ export const Home = () => {
 
   return (
     <>
-      {isFetching ?
+      {isFetching || !windSpeed ?
         <img src={logo} className="app-logo" alt="logo" /> :
         <div className="container" >
           <div className="row">
