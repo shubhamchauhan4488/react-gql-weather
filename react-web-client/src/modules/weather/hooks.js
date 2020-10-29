@@ -5,6 +5,14 @@ import { getCity, getVisibility, getHumidity, getTemperatureData, getWindSpeed, 
 import { useLazyQuery } from "@apollo/client";
 import { GET_WEATHER_QUERY } from "./constants";
 
+export const useCity = () => {
+  const dispatch = useDispatch();
+  const city = useSelector(getCity)
+  return {
+    city,
+    dispatchFetchCityFromCoordinates: (lat, lng) => dispatch(fetchCityFromCoordinates(lat, lng))
+  }
+}
 export const useWeather = () => {
   const dispatch = useDispatch();
   const city = useSelector(getCity)
@@ -18,7 +26,6 @@ export const useWeather = () => {
   const [getWeather, { loading, data, error }] = useLazyQuery(GET_WEATHER_QUERY);
 
   useEffect(() => {
-    console.log('citydetected', city)
     city && getWeather({
       variables: { name: city },
     })
@@ -27,13 +34,11 @@ export const useWeather = () => {
   }, [city, getWeather, data?.getCityByName?.weather, dispatch, loading, error])
 
   return {
-    city,
     humidity,
     visibility,
     temperature,
     windSpeed,
     weatherSummaryDescription,
     isFetching,
-    dispatchFetchCityFromCoordinates: (lat, lng) => dispatch(fetchCityFromCoordinates(lat, lng))
   }
-}
+};

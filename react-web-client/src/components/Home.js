@@ -1,37 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { useWeather } from "../modules/weather/hooks";
-// import { useLatLng } from "../globals/customHooks/location";
+import { useWeather, useCity } from "../modules/weather/hooks";
 import logo from './../logo.svg';
 import { kelvinToCelcius } from "../globals/utilities/conversions";
 import { getLatLng } from "../globals/utilities/location";
-// import { useLazyQuery } from "@apollo/client";
-// import { GET_WEATHER_QUERY } from "../modules/weather/constants";
 
 export const Home = () => {
-
-  const [location, setLocation] = useState({
-    lat: '',
-    lng: ''
-  });
+  const [location, setLocation] = useState({ lat: '', lng: '' });
   const {
-    city,
     humidity,
     visibility,
     temperature,
     windSpeed,
     weatherSummaryDescription,
     isFetching,
-    dispatchFetchCityFromCoordinates,
   } = useWeather();
 
-
-  // const { loading, data, error } = useQuery(GET_WEATHER_QUERY, {
-  //   skip: !city,
-  //   variables: { name: city },
-  //   notifyOnNetworkStatusChange: true
-  // });
-
-  // const [getWeather, { loading, data, error }] = useLazyQuery(GET_WEATHER_QUERY)
+  const {
+    city,
+    dispatchFetchCityFromCoordinates,
+  } = useCity()
 
   useEffect(() => {
     getLatLng(setLocation);
@@ -53,11 +40,9 @@ export const Home = () => {
     dispatchFetchCityFromCoordinates(location?.lat, location?.lng)
   };
 
-  // console.log('isFetching loading', isFetching, loading)
-  const showLoader = isFetching || false
   return (
     <>
-      {showLoader ?
+      {isFetching ?
         <img src={logo} className="App-logo" alt="logo" /> :
         <div className="container" >
           <div className="row">
