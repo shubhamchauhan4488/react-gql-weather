@@ -1,11 +1,8 @@
 export const getLatLng = (setLocation) => {
 
-  let lat = '';
-  let lng = '';
-
   const successCallback = (position) => {
-    lat = position.coords.latitude;
-    lng = position.coords.longitude;
+    const lat = position.coords.latitude;
+    const lng = position.coords.longitude;
     setLocation({ lat, lng })
     return
   }
@@ -18,7 +15,7 @@ export const getLatLng = (setLocation) => {
   let options = {
     enableHighAccuracy: true,
     timeout: 10000,
-    maximumAge: 20
+    maximumAge: 0
   };
 
   if (navigator.geolocation) {
