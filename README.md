@@ -7,7 +7,8 @@ How to run the APPS on local :
  - git clone https://github.com/shubhamchauhan4488/react-gql-weather.git
  
  ### `yarn`
- In terminal, run `yarn install` to install the packages
+  - In terminal, cd into react-web-client
+  - Run `yarn` to install the packages
  
  ### `yarn start`
   - In terminal, run `yarn start`
@@ -22,15 +23,15 @@ How to run the APPS on local :
  ### `API key`
  This app needs API key to be put in .env file.
  - Go to https://openweathermap.org/api, suscribe for CurrentWwatherData Api and click get API key.
- - create an account with openWeatherMap at https://home.openweathermap.org/users/sign_up 
- - once an account is created, you will receive an API-key in the mail provided
- - create .env file in the root directory of graphql-weather-api, and write : `KEY=YOUR_KEY_RECEIVED_IN_MAIL`
+ - Create an account with openWeatherMap at https://home.openweathermap.org/users/sign_up 
+ - Once an account is created, you will receive an API-key in the mail provided.
+ - In terminal, cd into graphql-weather-api and open it in an editor.
+ - Create .env file in the root directory of graphql-weather-api, and write : `KEY=YOUR_KEY_RECEIVED_IN_MAIL`. Save.
  
-
  ### `npm`
- This app uses npm package manager. In terminal, run `npm i` to install the packages
+ This app uses npm package manager. In terminal, under same project i.e graphql-weather-api, run `npm i` to install the packages
  
  ### `npm start`
  In terminal, run `npm start`
  Runs the app in the development mode.<br />
- Open [http://localhost:4200](http://localhost:4200) to view it in the browser and use any query to test the server is up !
+ Open [http://localhost:4000](http://localhost:4000) to view it in the browser and use any query to test the server is up !
