@@ -4,7 +4,7 @@ How to run the APPS on local :
 ### `react-gql-weather`
  ### `git clone`
  - cd into your desired dir folder 
- - git clone https://github.com/shubhamchauhan4488/mortgage-calculator.git
+ - git clone https://github.com/shubhamchauhan4488/react-gql-weather.git
  
  ### `yarn`
  In terminal, run `yarn install` to install the packages
